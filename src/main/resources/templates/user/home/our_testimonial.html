@@ -1,94 +1,94 @@
 <div class="testimonial-block">
-	<div class="testimonial-container box-module">
-		<div class="page-title">
-			<h3 class="toggled">Our Testimonial</h3>
-		</div>
-		<div class="owl-container">
-			<div class="block-content">
-				<div class="slideTestimonial owl-carousel owl-theme">
+    <div class="testimonial-container box-module">
+        <div class="page-title">
+            <h3 class="toggled">Our Testimonial</h3>
+        </div>
+        <div class="owl-container">
+            <div class="block-content">
+                <div class="slideTestimonial owl-carousel owl-theme">
 
-					<div class="row-items">
-						<div class="testimonial-images">
-							<img src="/assets/user/image/cache/catalog/testimonial/1-100x100.jpg"
-								alt="Alexa Gomez" class="m-image-auto m-auto img-circle">
-						</div>
-						<div class="testimonial-content">
+                    <div class="row-items">
+                        <div class="testimonial-images">
+                            <img src="/assets/user/image/cache/catalog/testimonial/1-100x100.jpg"
+                                 alt="Alexa Gomez" class="m-image-auto m-auto img-circle">
+                        </div>
+                        <div class="testimonial-content">
 
-							<div class="testimonial-text">
-								<p>Người quản lí hệ thống và là nhân viên xuất sắc trong tháng</p>
-							</div>
-							<div class="testimonial-author">Hồng Cường</div>
-							<div class="testimonial-customer">DIRECTOR</div>
-						</div>
-					</div>
-
-
-					<div class="row-items">
-						<div class="testimonial-images">
-							<img src="/assets/user/image/cache/catalog/testimonial/1-100x100.jpg"
-								alt="Alexa Gomez" class="m-image-auto m-auto img-circle">
-						</div>
-						<div class="testimonial-content">
-
-							<div class="testimonial-text">
-								<p>Người quản lí hệ thống và là nhân viên xuất sắc trong tháng</p>
-							</div>
-							<div class="testimonial-author">Hồng Cường</div>
-							<div class="testimonial-customer">DIRECTOR</div>
-						</div>
-					</div>
+                            <div class="testimonial-text">
+                                <p>Người quản lí hệ thống và là nhân viên xuất sắc trong tháng</p>
+                            </div>
+                            <div class="testimonial-author">Hồng Cường</div>
+                            <div class="testimonial-customer">DIRECTOR</div>
+                        </div>
+                    </div>
 
 
-					<div class="row-items">
-						<div class="testimonial-images">
-							<img src="/assets/user/image/cache/catalog/testimonial/1-100x100.jpg"
-								alt="Alexa Gomez" class="m-image-auto m-auto img-circle">
-						</div>
-						<div class="testimonial-content">
+                    <div class="row-items">
+                        <div class="testimonial-images">
+                            <img src="/assets/user/image/cache/catalog/testimonial/1-100x100.jpg"
+                                 alt="Alexa Gomez" class="m-image-auto m-auto img-circle">
+                        </div>
+                        <div class="testimonial-content">
 
-							<div class="testimonial-text">
-								<p>Người quản lí hệ thống và là nhân viên xuất sắc trong tháng</p>
-							</div>
-							<div class="testimonial-author">Hồng Cường</div>
-							<div class="testimonial-customer">DIRECTOR</div>
-						</div>
-					</div>
+                            <div class="testimonial-text">
+                                <p>Người quản lí hệ thống và là nhân viên xuất sắc trong tháng</p>
+                            </div>
+                            <div class="testimonial-author">Hồng Cường</div>
+                            <div class="testimonial-customer">DIRECTOR</div>
+                        </div>
+                    </div>
 
-				</div>
-			</div>
-		</div>
-	</div>
+
+                    <div class="row-items">
+                        <div class="testimonial-images">
+                            <img src="/assets/user/image/cache/catalog/testimonial/1-100x100.jpg"
+                                 alt="Alexa Gomez" class="m-image-auto m-auto img-circle">
+                        </div>
+                        <div class="testimonial-content">
+
+                            <div class="testimonial-text">
+                                <p>Người quản lí hệ thống và là nhân viên xuất sắc trong tháng</p>
+                            </div>
+                            <div class="testimonial-author">Hồng Cường</div>
+                            <div class="testimonial-customer">DIRECTOR</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
-	$(document).ready(
-			function() {
-				const direct = $('html').attr('dir');
-				const items = 1;
-				$(".slideTestimonial").each(
-						function() {
-							const sliderOptions = {
-								loop : false,
-								nav : true,
-								navText : [ '<i class="fa fa-caret-left"></i>',
-										'<i class="fa fa-caret-right"></i>' ],
-								dots : false,
-								items : items,
-								autoplay : true,
-								autoplayTimeout : 3000,
-								responsiveRefreshRate : 200,
-								responsive : {
-									0 : {
-										items : 1
-									},
-									1201 : {
-										items : 1
-									}
-								}
-							};
+    $(document).ready(
+        function () {
+            const direct = $('html').attr('dir');
+            const items = 1;
+            $(".slideTestimonial").each(
+                function () {
+                    const sliderOptions = {
+                        loop: false,
+                        nav: true,
+                        navText: ['<i class="fa fa-caret-left"></i>',
+                            '<i class="fa fa-caret-right"></i>'],
+                        dots: false,
+                        items: items,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        responsiveRefreshRate: 200,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            1201: {
+                                items: 1
+                            }
+                        }
+                    };
 
-							if (direct == 'rtl')
-								sliderOptions['rtl'] = true;
-							$(this).owlCarousel(sliderOptions);
-						});
-			});
+                    if (direct == 'rtl')
+                        sliderOptions['rtl'] = true;
+                    $(this).owlCarousel(sliderOptions);
+                });
+        });
 </script>

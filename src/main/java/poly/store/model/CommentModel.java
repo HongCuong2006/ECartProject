@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommentModel {
-	private int productId;
-	private String content;
-	private int star;
+    private int productId;
+    private String content;
+    private int star;
 }

@@ -21,24 +21,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="Favorites")
+@Table(name = "Favorites")
 public class Favorite implements Serializable {
-	// Thong tin favorite id
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	private String date;
+    // Thong tin favorite id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	// Thong tin nguoi dung
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "User_Id")
-	User user;
+    private String date;
 
-	// Thong tin san pham
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "Product_Id")
-	Product product;
+    // Thong tin nguoi dung
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "User_Id")
+    User user;
+
+    // Thong tin san pham
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "Product_Id")
+    Product product;
 }

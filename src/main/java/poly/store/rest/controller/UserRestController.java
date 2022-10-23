@@ -1,8 +1,8 @@
 /**
  * @(#)EmployeeRestController.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -27,7 +27,7 @@ import poly.store.service.UserService;
 
 /**
  * Class cung cap cac dich vu rest api cho bang employee
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -35,36 +35,36 @@ import poly.store.service.UserService;
 @RestController
 @RequestMapping("/rest/user")
 public class UserRestController {
-	@Autowired
-	UserService userService;
-	
-	@GetMapping("{email}")
-	public User getUserByEmail(@PathVariable("email") String email) {
-		return userService.findUserByEmail(email);
-	}
-	
-	@GetMapping()
-	public List<User> getAllUser() {
-		return userService.findAllUserAnable();
-	}
-	
-	@GetMapping("/account")
-	public InformationModel getUserAccount() {
-		return userService.getUserAccount();
-	}
-	
-	@PostMapping
-	public User create(@RequestBody User user) {
-		return userService.create(user);
-	}
-	
-	@PutMapping("/account/update")
-	public InformationModel update(@RequestBody InformationModel informationModel) {
-		return userService.update(informationModel);
-	}
-	
-	@PutMapping("/account/change-password")
-	public ChangePassModel changePass(@RequestBody ChangePassModel changePassModel) {
-		return userService.updatePass(changePassModel);
-	}
+    @Autowired
+    UserService userService;
+
+    @GetMapping("{email}")
+    public User getUserByEmail(@PathVariable("email") String email) {
+        return userService.findUserByEmail(email);
+    }
+
+    @GetMapping()
+    public List<User> getAllUser() {
+        return userService.findAllUserAnable();
+    }
+
+    @GetMapping("/account")
+    public InformationModel getUserAccount() {
+        return userService.getUserAccount();
+    }
+
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return userService.create(user);
+    }
+
+    @PutMapping("/account/update")
+    public InformationModel update(@RequestBody InformationModel informationModel) {
+        return userService.update(informationModel);
+    }
+
+    @PutMapping("/account/change-password")
+    public ChangePassModel changePass(@RequestBody ChangePassModel changePassModel) {
+        return userService.updatePass(changePassModel);
+    }
 }

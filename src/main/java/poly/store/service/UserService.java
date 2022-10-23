@@ -1,8 +1,8 @@
 /**
  * @(#)UserService.java 2021/09/08.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/08.
  * Version 1.00.
  */
@@ -16,32 +16,32 @@ import poly.store.model.InformationModel;
 
 /**
  * Class cung cap cac dich vu thao tac voi table Users trong database
- * 
+ *
  * @author KHOA-PH
  * @version 1.00
  */
 public interface UserService {
-	
-	/**
-	 * Tim kiem User bang email
-	 * 
-	 * @param username thong tin email
-	 * @return User tim duoc
-	 */
-	User findUserByEmail(String email);
 
-	void save(User user);
+    /**
+     * Tim kiem User bang email
+     *
+     * @param username thong tin email
+     * @return User tim duoc
+     */
+    User findUserByEmail(String email);
 
-	List<User> findAll();
+    void save(User user);
 
-	User create(User user);
+    List<User> findAll();
 
-	List<User> findAllUserAnable();
+    User create(User user);
 
-	InformationModel getUserAccount();
+    List<User> findAllUserAnable();
 
-	InformationModel update(InformationModel informationModel);
+    InformationModel getUserAccount();
 
-	ChangePassModel updatePass(ChangePassModel changePassModel);
+    InformationModel update(InformationModel informationModel);
+
+    ChangePassModel updatePass(ChangePassModel changePassModel);
 
 }

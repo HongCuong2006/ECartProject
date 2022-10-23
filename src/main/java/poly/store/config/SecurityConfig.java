@@ -1,8 +1,8 @@
 /**
  * @(#)SecurityConfig.java 2021/09/09.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX FIVE.
- * 
+ * <p>
  * Last_Update 2021/09/09.
  * Version 1.00.
  */
@@ -26,88 +26,90 @@ import poly.store.service.impl.UserDetailsServiceImpl;
 
 /**
  * Class dung de phan quyen cho project
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	// Thong tin User Service
-	@Autowired
-	UserService userService;
+    // Thong tin User Service
+    @Autowired
+    UserService userService;
 
-	// Phuong thuc ma hoa mat khau
-	@Autowired
-	BCryptPasswordEncoder pe;
+    // Phuong thuc ma hoa mat khau
+    @Autowired
+    BCryptPasswordEncoder pe;
 
-	// Phuong thuc cap quyen
-	@Autowired
-	private UserDetailsServiceImpl userDetailsService;
+    // Phuong thuc cap quyen
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 
-	// Thong tin datasource
-	@Autowired
-	DataSource dataSource;
+    // Thong tin datasource
+    @Autowired
+    DataSource dataSource;
 
-	/**
-	 * Cung cap quyen cho project
-	 * 
-	 * @param auth
-	 * @throws Exception
-	 */
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-	}
+    /**
+     * Cung cap quyen cho project
+     *
+     * @param auth
+     * @throws Exception
+     */
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService);
+    }
 
-	/**
-	 * Xu ly phan quyen nguoi dung
-	 * 
-	 * @param http
-	 * @throws exception
-	 */
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable();
+    /**
+     * Xu ly phan quyen nguoi dung
+     *
+     * @param http
+     * @throws exception
+     */
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
 
-		// Cac trang yeu cau quyen su dung la Admin hoac Director
-		http.authorizeRequests().antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_DIRECTOR')");
+        // Cac trang yeu cau quyen su dung la Admin hoac Director
+        http.authorizeRequests().antMatchers("/admin/**").access("hasAnyRole('ROLE_ADMIN', 'ROLE_DIRECTOR')");
 
-		http.authorizeRequests().antMatchers("/shop/profile/**","/shop/favorite/**" ,"/shop/cart/checkout", "/account", "/account/**", "/rest/favorite/add/**")
-		.access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_DIRECTOR')");
-		
-		// Các trang không yêu cầu login
-		http.authorizeRequests().anyRequest().permitAll();
+        http.authorizeRequests()
+                .antMatchers("/shop/profile/**", "/shop/favorite/**", "/shop/cart/checkout", "/account", "/account/**",
+                        "/rest/favorite/add/**")
+                .access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_DIRECTOR')");
 
-		// Khi người dùng đã login, với vai trò XX.
-		// Nhưng truy cập vào trang yêu cầu vai trò YY,
-		// Ngoại lệ AccessDeniedException sẽ ném ra.
-		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403page");
+        // Các trang không yêu cầu login
+        http.authorizeRequests().anyRequest().permitAll();
 
-		// Cau hinh cho form login
-		http.authorizeRequests().and().formLogin().loginPage("/login").usernameParameter("username")
-				.passwordParameter("password").failureForwardUrl("/login").defaultSuccessUrl("/login/success", false);
+        // Khi người dùng đã login, với vai trò XX.
+        // Nhưng truy cập vào trang yêu cầu vai trò YY,
+        // Ngoại lệ AccessDeniedException sẽ ném ra.
+        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403page");
 
-		// Cau hinh dang xuat khoi chuong trinh
-		http.authorizeRequests().and().logout().logoutUrl("/logout").logoutSuccessUrl("/index");
+        // Cau hinh cho form login
+        http.authorizeRequests().and().formLogin().loginPage("/login").usernameParameter("username")
+                .passwordParameter("password").failureForwardUrl("/login").defaultSuccessUrl("/login/success", false);
 
-		// Cau hinh remember me
-		http.authorizeRequests().and().rememberMe().tokenValiditySeconds(86400);
-	}
+        // Cau hinh dang xuat khoi chuong trinh
+        http.authorizeRequests().and().logout().logoutUrl("/logout").logoutSuccessUrl("/index");
 
-	/**
-	 * Cung cap phuong thuc ma hoa
-	 * 
-	 * @return phuong thuc ma hoa
-	 */
-	@Bean
-	public BCryptPasswordEncoder getPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+        // Cau hinh remember me
+        http.authorizeRequests().and().rememberMe().tokenValiditySeconds(86400);
+    }
 
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-		// TODO Auto-generated method stub
-		web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
-	}
+    /**
+     * Cung cap phuong thuc ma hoa
+     *
+     * @return phuong thuc ma hoa
+     */
+    @Bean
+    public BCryptPasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        // TODO Auto-generated method stub
+        web.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
+    }
 }

@@ -9,6 +9,6 @@ import poly.store.entity.Product;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShowProduct {
-	private Product product;
-	private int totalStar;
+    private Product product;
+    private int totalStar;
 }

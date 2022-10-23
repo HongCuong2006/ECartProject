@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StatisticalTotalOrder {
-	private long orderSuccess;
-	private long orderCancel;
-	private long orderWait;
-	private long orderTransport;
+    private long orderSuccess;
+    private long orderCancel;
+    private long orderWait;
+    private long orderTransport;
 }

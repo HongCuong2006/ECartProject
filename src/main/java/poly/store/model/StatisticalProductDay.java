@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 
 @Entity
 public class StatisticalProductDay {
-	@Id
-	private String code;
-	private String name;
-	private int price;
-	private int quantity;
-	private long selled;
+    @Id
+    private String code;
+    private String name;
+    private int price;
+    private int quantity;
+    private long selled;
 }

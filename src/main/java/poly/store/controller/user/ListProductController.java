@@ -1,8 +1,8 @@
 /**
  * @(#)IndexController.java 2021/10/12.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/10/12.
  * Version 1.00.
  */
@@ -33,51 +33,52 @@ import poly.store.service.SessionService;
 
 /**
  * Class de danh sach san pham
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 @Controller
 public class ListProductController {
-	@Autowired
-	ProductService productService;
+    @Autowired
+    ProductService productService;
 
-	@Autowired
-	CategoryService categoryService;
+    @Autowired
+    CategoryService categoryService;
 
-	@Autowired
-	SessionService sessionService;
+    @Autowired
+    SessionService sessionService;
 
-	@Autowired
-	ManufacturerService manufacturerService;
+    @Autowired
+    ManufacturerService manufacturerService;
 
-	@GetMapping("/danh-sach/{nameSearch}")
-	public String index(@PathVariable("nameSearch") String nameSearch, Model model,
-			@RequestParam("p") Optional<Integer> p, @RequestParam(name = "gia", required = false) String price,
-			@RequestParam(name = "hang", required = false) String manu, @RequestParam(name = "xep", required = false) String sort) {
-		
-		Pageable pageable = PageRequest.of(p.orElse(0), 15);
+    @GetMapping("/danh-sach/{nameSearch}")
+    public String index(@PathVariable("nameSearch") String nameSearch, Model model,
+            @RequestParam("p") Optional<Integer> p, @RequestParam(name = "gia", required = false) String price,
+            @RequestParam(name = "hang", required = false) String manu,
+            @RequestParam(name = "xep", required = false) String sort) {
 
-		Page<ShowProduct> listProduct = productService.getListProductByFilter(nameSearch, price, manu, sort, pageable);
-		
-		model.addAttribute("listProduct", listProduct);
-		model.addAttribute("price", price);
-		model.addAttribute("manu", manu);
-		model.addAttribute("sort", sort);
-		model.addAttribute("nameSearch", nameSearch);
+        Pageable pageable = PageRequest.of(p.orElse(0), 15);
 
-		return Constants.USER_DISPLAY_LIST_PRODUCT_BY_CATEGORY;
-	}
+        Page<ShowProduct> listProduct = productService.getListProductByFilter(nameSearch, price, manu, sort, pageable);
 
-	@ModelAttribute("inforCategory")
-	public Category inforCategory(@PathVariable("nameSearch") String nameSearch) {
-		Category category = categoryService.getCategoryByNameSearch(nameSearch);
-		return category;
-	}
+        model.addAttribute("listProduct", listProduct);
+        model.addAttribute("price", price);
+        model.addAttribute("manu", manu);
+        model.addAttribute("sort", sort);
+        model.addAttribute("nameSearch", nameSearch);
 
-	@ModelAttribute("listManu")
-	public List<Manufacturer> listManu() {
-		List<Manufacturer> list = manufacturerService.findAll();
-		return list;
-	}
+        return Constants.USER_DISPLAY_LIST_PRODUCT_BY_CATEGORY;
+    }
+
+    @ModelAttribute("inforCategory")
+    public Category inforCategory(@PathVariable("nameSearch") String nameSearch) {
+        Category category = categoryService.getCategoryByNameSearch(nameSearch);
+        return category;
+    }
+
+    @ModelAttribute("listManu")
+    public List<Manufacturer> listManu() {
+        List<Manufacturer> list = manufacturerService.findAll();
+        return list;
+    }
 }

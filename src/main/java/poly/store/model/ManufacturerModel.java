@@ -1,8 +1,8 @@
 /**
  * @(#)ManufacturerModel.java 2021/09/21.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/21.
  * Version 1.00.
  */
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class thong tin truy van cua bang Manufacturer
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -22,9 +22,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ManufacturerModel {
-	private int id;
-	private String name;
-	private String banner;
-	private String logo;
-	private String describe;
+    private int id;
+    private String name;
+    private String banner;
+    private String logo;
+    private String describe;
 }

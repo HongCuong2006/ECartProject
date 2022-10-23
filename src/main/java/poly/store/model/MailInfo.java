@@ -1,8 +1,8 @@
 /**
  * @(#)MailInfo.java 2021/09/08.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/08.
  * Version 1.00.
  */
@@ -14,26 +14,27 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class chua thong tin gui mail
- * 
+ *
  * @author khoa-ph
  * @version 1.00
- * 
+ *
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class MailInfo {
-	String from;
-	String to;
-	String[] cc;
-	String[] bcc;
-	String subject;
-	String body;
-	String[] attachment;
-	public MailInfo(String to, String subject, String body) {
-		this.from = "FPT Polytechnic <poly@fpt.edu.vn>";
-		this.to = to;
-		this.subject = subject;
-		this.body = body;
-	}
+    String from;
+    String to;
+    String[] cc;
+    String[] bcc;
+    String subject;
+    String body;
+    String[] attachment;
+
+    public MailInfo(String to, String subject, String body) {
+        this.from = "FPT Polytechnic <poly@fpt.edu.vn>";
+        this.to = to;
+        this.subject = subject;
+        this.body = body;
+    }
 }

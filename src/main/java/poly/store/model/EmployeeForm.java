@@ -1,8 +1,8 @@
 /**
  * @(#)EmployeeForm.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -16,7 +16,7 @@ import lombok.Data;
 
 /**
  * Class thong tin truy van cua bang Employee
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -24,13 +24,13 @@ import lombok.Data;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeForm {
-	private int id;
-	private String email;
-	private String fullname;
-	private String position;
-	private String department;
-	private String phone;
-	private int salary;
-	private String startday;
-	private int role;
+    private int id;
+    private String email;
+    private String fullname;
+    private String position;
+    private String department;
+    private String phone;
+    private int salary;
+    private String startday;
+    private int role;
 }

@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import poly.store.entity.Manufacturer;
 
-public interface ManufacturerDao extends JpaRepository<Manufacturer, Integer>{
-	@Query("SELECT m FROM Manufacturer m WHERE m.Deleteday = null")
-	List<Manufacturer> getListManufacturer();
+public interface ManufacturerDao extends JpaRepository<Manufacturer, Integer> {
+    @Query("SELECT m FROM Manufacturer m WHERE m.Deleteday = null")
+    List<Manufacturer> getListManufacturer();
 }

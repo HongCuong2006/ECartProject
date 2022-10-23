@@ -1,8 +1,8 @@
 /**
  * @(#)CategoryModel.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class thong tin truy van cua bang Category
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -22,10 +22,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryModel {
-	private int id;
-	private String name;
-	private String banner;
-	private String logo;
-	private String describe;
-	private String nameSearch;
+    private int id;
+    private String name;
+    private String banner;
+    private String logo;
+    private String describe;
+    private String nameSearch;
 }

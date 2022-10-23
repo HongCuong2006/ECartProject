@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class District {
-	private int id;
-	private String name;
-	private List<Ward> wards;
+    private int id;
+    private String name;
+    private List<Ward> wards;
 }

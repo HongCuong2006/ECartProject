@@ -1,8 +1,8 @@
 /**
  * @(#)UserServiceImpl.java 2021/09/08.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/08.
  * Version 1.00.
  */
@@ -24,100 +24,100 @@ import poly.store.service.UserService;
 /**
  * Class trien khai theo interface UserService, Thao tac voi Class UserDao de
  * thuc hien cac tac vu tuong ung
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 @Service
 public class UserServiceImpl implements UserService {
-	// Thong tin class User Dao
-	@Autowired
-	UserDao userDao;
-	
-	/**
-	 * Tim user bang email truyen vao
-	 * 
-	 * @param username thong tin Email
-	 * @return User tim duoc
-	 */
-	@Override
-	public User findUserByEmail(String email) {
-		// Tra ve User tim duoc
-		return userDao.findUserByEmail(email);
-	}
+    // Thong tin class User Dao
+    @Autowired
+    UserDao userDao;
 
-	/**
-	 * Luu user vao database
-	 * 
-	 * @param user thong tin user
-	 */
-	@Override
-	public void save(User user) {
-		userDao.save(user);
-	}
+    /**
+     * Tim user bang email truyen vao
+     *
+     * @param username thong tin Email
+     * @return User tim duoc
+     */
+    @Override
+    public User findUserByEmail(String email) {
+        // Tra ve User tim duoc
+        return userDao.findUserByEmail(email);
+    }
 
-	@Override
-	public List<User> findAll() {
-		return userDao.findAll();
-	}
+    /**
+     * Luu user vao database
+     *
+     * @param user thong tin user
+     */
+    @Override
+    public void save(User user) {
+        userDao.save(user);
+    }
 
-	@Override
-	public User create(User user) {
-		return userDao.save(user);
-	}
+    @Override
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
 
-	@Override
-	public List<User> findAllUserAnable() {
-		return userDao.findAllUserAnable();
-	}
+    @Override
+    public User create(User user) {
+        return userDao.save(user);
+    }
 
-	@Override
-	public InformationModel getUserAccount() {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
-		
-		User user = userDao.findUserByEmail(username);
-		
-		InformationModel information = new InformationModel();
-		
-		information.setPassword(user.getPassword());
-		information.setFullName(user.getFullname());
-		information.setEmail(user.getEmail());
-		information.setBirthday(user.getBirthday());
-		information.setGender(user.getSex());
-		information.setNews(user.getSubscribe());
-		
-		return information;
-	}
+    @Override
+    public List<User> findAllUserAnable() {
+        return userDao.findAllUserAnable();
+    }
 
-	@Override
-	public InformationModel update(InformationModel informationModel) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
-		
-		User user = userDao.findUserByEmail(username);
-		
-		user.setFullname(informationModel.getFullName());
-		user.setBirthday(informationModel.getBirthday());
-		user.setSubscribe(informationModel.getNews());
-		user.setSex(informationModel.getGender());
-		
-		userDao.save(user);
-		
-		return informationModel;
-	}
+    @Override
+    public InformationModel getUserAccount() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
 
-	@Override
-	public ChangePassModel updatePass(ChangePassModel changePassModel) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
-		
-		User user = userDao.findUserByEmail(username);
-		
-		user.setPassword(changePassModel.getNewPass());
-		
-		userDao.save(user);
-		
-		return changePassModel;
-	}
+        User user = userDao.findUserByEmail(username);
+
+        InformationModel information = new InformationModel();
+
+        information.setPassword(user.getPassword());
+        information.setFullName(user.getFullname());
+        information.setEmail(user.getEmail());
+        information.setBirthday(user.getBirthday());
+        information.setGender(user.getSex());
+        information.setNews(user.getSubscribe());
+
+        return information;
+    }
+
+    @Override
+    public InformationModel update(InformationModel informationModel) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
+
+        User user = userDao.findUserByEmail(username);
+
+        user.setFullname(informationModel.getFullName());
+        user.setBirthday(informationModel.getBirthday());
+        user.setSubscribe(informationModel.getNews());
+        user.setSex(informationModel.getGender());
+
+        userDao.save(user);
+
+        return informationModel;
+    }
+
+    @Override
+    public ChangePassModel updatePass(ChangePassModel changePassModel) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
+
+        User user = userDao.findUserByEmail(username);
+
+        user.setPassword(changePassModel.getNewPass());
+
+        userDao.save(user);
+
+        return changePassModel;
+    }
 }

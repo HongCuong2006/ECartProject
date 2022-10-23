@@ -9,14 +9,14 @@ import poly.store.interceptor.GlobalInterceptor;
 
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
-	@Autowired
-	GlobalInterceptor globalInterceptor;
+    @Autowired
+    GlobalInterceptor globalInterceptor;
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(globalInterceptor)
-				.addPathPatterns("/**")
-				.excludePathPatterns("/rest/**", "/admin/**", "/assets/**");
-	}
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(globalInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/rest/**", "/admin/**", "/assets/**");
+    }
 
 }

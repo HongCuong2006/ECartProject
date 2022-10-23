@@ -1,8 +1,8 @@
 /**
  * @(#)ForgetPasswordController.java 2021/09/09.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/09.
  * Version 1.00.
  */
@@ -26,57 +26,58 @@ import poly.store.service.impl.MailerServiceImpl;
 
 /**
  * Class de lay lai mat khau
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 @Controller
 public class ForgetPasswordController {
-	
-	@Autowired
-	UserService userService;
-	
-	@Autowired
-	MailerServiceImpl mailerService;
-	
-	@Autowired
-	PasswordEncoder pe;
 
-	/**
-	 * Hien thi man hinh forget-password
-	 * 
-	 * @param model
-	 * @return man hinh forget-password
-	 */
-	@GetMapping("/forget-password")
-	public String displayFormForgetPassword(Model model) {
-		UserRegister userForm = new UserRegister();
-		model.addAttribute("userForm", userForm);
-		return Constants.USER_DISPLAY_FORGET_PASSWORD;
-	}
+    @Autowired
+    UserService userService;
 
-	@PostMapping("/forget-password")
-	public String handlerFormForgetPassword(Model model, @ModelAttribute("userForm") @Validated UserRegister userForm,
-			BindingResult result) {
-		if (userForm.getEmail().isEmpty()) {
-			result.rejectValue("email", "NotBlank.userRegister.email");
-		} else {
-			User user = userService.findUserByEmail(userForm.getEmail());
-			if (user == null) {
-				result.rejectValue("email", "NotExist.userLogin.username");
-			}
-			else {
-				String password = pe.encode(user.getPassword());
-				mailerService.queue(userForm.getEmail(), "Làm mới mật khẩu!", "Vui lòng click vào link này: "+ "http://localhost:8080/reset-password?code="+password+"&email="+user.getEmail() +" để reset mật khẩu.");
-			}
-		}
+    @Autowired
+    MailerServiceImpl mailerService;
 
-		if (result.hasErrors()) {
-			return Constants.USER_DISPLAY_FORGET_PASSWORD;
-		}
-		
-		model.addAttribute("alert", "Thông báo!");
-		model.addAttribute("message", "Vui lòng kiểm tra email để thay đổi mật khẩu!");
-		return Constants.USER_DISPLAY_ALERT_STATUS;
-	}
+    @Autowired
+    PasswordEncoder pe;
+
+    /**
+     * Hien thi man hinh forget-password
+     *
+     * @param model
+     * @return man hinh forget-password
+     */
+    @GetMapping("/forget-password")
+    public String displayFormForgetPassword(Model model) {
+        UserRegister userForm = new UserRegister();
+        model.addAttribute("userForm", userForm);
+        return Constants.USER_DISPLAY_FORGET_PASSWORD;
+    }
+
+    @PostMapping("/forget-password")
+    public String handlerFormForgetPassword(Model model, @ModelAttribute("userForm") @Validated UserRegister userForm,
+            BindingResult result) {
+        if (userForm.getEmail().isEmpty()) {
+            result.rejectValue("email", "NotBlank.userRegister.email");
+        } else {
+            User user = userService.findUserByEmail(userForm.getEmail());
+            if (user == null) {
+                result.rejectValue("email", "NotExist.userLogin.username");
+            } else {
+                String password = pe.encode(user.getPassword());
+                mailerService.queue(userForm.getEmail(), "Làm mới mật khẩu!",
+                        "Vui lòng click vào link này: " + "http://localhost:8080/reset-password?code=" + password
+                                + "&email=" + user.getEmail() + " để reset mật khẩu.");
+            }
+        }
+
+        if (result.hasErrors()) {
+            return Constants.USER_DISPLAY_FORGET_PASSWORD;
+        }
+
+        model.addAttribute("alert", "Thông báo!");
+        model.addAttribute("message", "Vui lòng kiểm tra email để thay đổi mật khẩu!");
+        return Constants.USER_DISPLAY_ALERT_STATUS;
+    }
 }

@@ -1,8 +1,8 @@
 /**
  * @(#)UserRoleService.java 2021/08/24.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/08/24.
  * Version 1.00.
  */
@@ -14,23 +14,23 @@ import poly.store.entity.UserRole;
 
 /**
  * Class cung cap cac dich vu thao tac voi table User_Role trong database
- * 
+ *
  * @author KHOA-PH
  * @version 1.00
  */
-public interface UserRoleService{
-	
-	/**
-	 * Luu user role vao database
-	 * 
-	 * @param userRole
-	 */
-	void save(UserRole userRole);
+public interface UserRoleService {
 
-	List<UserRole> findAll();
+    /**
+     * Luu user role vao database
+     *
+     * @param userRole
+     */
+    void save(UserRole userRole);
 
-	List<UserRole> findAllAdminOrDirector();
+    List<UserRole> findAll();
 
-	void delete(Integer id);
-	
+    List<UserRole> findAllAdminOrDirector();
+
+    void delete(Integer id);
+
 }

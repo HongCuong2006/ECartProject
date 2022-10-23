@@ -8,12 +8,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DiscountModel {
-	private int id;
-	private String name;
-	private String code;
-	private int price;
-	private int quality;
-	private String applyDay;
-	private String expiration;
-	private int moneyLimit;
+    private int id;
+    private String name;
+    private String code;
+    private int price;
+    private int quality;
+    private String applyDay;
+    private String expiration;
+    private int moneyLimit;
 }

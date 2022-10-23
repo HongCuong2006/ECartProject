@@ -1,8 +1,8 @@
 /**
  * @(#)CategoryRestController.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -27,7 +27,7 @@ import poly.store.service.CategoryService;
 
 /**
  * Class cung cap cac dich vu rest api cho bang employee
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -35,31 +35,31 @@ import poly.store.service.CategoryService;
 @RestController
 @RequestMapping("/rest/categories")
 public class CategoryRestController {
-	@Autowired
-	CategoryService categoryService;
-	
-	@PostMapping("/form")
-	public CategoryModel create(@RequestBody CategoryModel categoryModel) {
-		return categoryService.createCategory(categoryModel);
-	}
-	
-	@GetMapping()
-	public List<Category> getAll(){
-		return categoryService.findAll();
-	}
-	
-	@GetMapping("/form/{id}")
-	public CategoryModel getOneUserById(@PathVariable("id") Integer id) {
-		return categoryService.getOneCategoryById(id);
-	}
-	
-	@DeleteMapping("{id}")
-	public void delete(@PathVariable("id") Integer id) {
-		categoryService.delete(id);
-	}
-	
-	@PutMapping("/form/{id}")
-	public CategoryModel update(@PathVariable("id") Integer id, @RequestBody CategoryModel categoryModel) {
-		return categoryService.updateCategory(categoryModel);
-	}
+    @Autowired
+    CategoryService categoryService;
+
+    @PostMapping("/form")
+    public CategoryModel create(@RequestBody CategoryModel categoryModel) {
+        return categoryService.createCategory(categoryModel);
+    }
+
+    @GetMapping()
+    public List<Category> getAll() {
+        return categoryService.findAll();
+    }
+
+    @GetMapping("/form/{id}")
+    public CategoryModel getOneUserById(@PathVariable("id") Integer id) {
+        return categoryService.getOneCategoryById(id);
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        categoryService.delete(id);
+    }
+
+    @PutMapping("/form/{id}")
+    public CategoryModel update(@PathVariable("id") Integer id, @RequestBody CategoryModel categoryModel) {
+        return categoryService.updateCategory(categoryModel);
+    }
 }

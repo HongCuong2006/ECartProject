@@ -1,8 +1,8 @@
 /**
  * @(#)EmployeeModel.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class thong tin truy van cua bang Employee
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -27,29 +27,29 @@ import lombok.NoArgsConstructor;
 
 @Entity
 public class EmployeeModel {
-	// Thong tin ho va ten
-	@Id
-	private String Fullname;
-	
-	// Thong tin phong ban
-	private String department;
+    // Thong tin ho va ten
+    @Id
+    private String Fullname;
 
-	// Thong tin so dien thoai
-	private String phone;
-	
-	// Thong tin chuc vu
-	private String position;
-	
-	// Thong tin ngay sinh
-	private String birthday;
-	
-	// Thong tin ngay tham gia
-	private String Startday;
-	
-	// Thong tin luong
-	private int salary;
-	
-	// Thong tin vai tro
+    // Thong tin phong ban
+    private String department;
+
+    // Thong tin so dien thoai
+    private String phone;
+
+    // Thong tin chuc vu
+    private String position;
+
+    // Thong tin ngay sinh
+    private String birthday;
+
+    // Thong tin ngay tham gia
+    private String Startday;
+
+    // Thong tin luong
+    private int salary;
+
+    // Thong tin vai tro
 //	private int role;
-	
+
 }

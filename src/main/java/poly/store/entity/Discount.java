@@ -1,8 +1,8 @@
 /**
  * @(#)Category.java 2021/09/19.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/19.
  * Version 1.00.
  */
@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class chua thong tin Discount
- * 
+ *
  * @author tuan-pm
  * @version 1.00
  */
@@ -35,51 +35,51 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Discount")
 public class Discount implements Serializable {
-	// Thong tin category id
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	// Thong tin ten ma giam gia
-	private String name;
-	
-	// Thong tin ma giam gia
-	private String code;
-	
-	// Thong tin so tien giam
-	private int price;
-	
-	// Thong tin so luong ma
-	private int quality;
-	
-	// Thong tin ngay ap dung
-	private String Applyday;
-	
-	// Thong tin ngay het han
-	private String expiration;
-	
-	// Thong tin so tien ap dung
-	private int Moneylimit;
+    // Thong tin category id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	// Thong tin ngay tao
-	private String Createday;
+    // Thong tin ten ma giam gia
+    private String name;
 
-	// Thong tin ma nguoi tao
-	private int Personcreate;
+    // Thong tin ma giam gia
+    private String code;
 
-	// Thong tin ngay xoa
-	private String Deleteday;
+    // Thong tin so tien giam
+    private int price;
 
-	// Thong tin nguoi xoa
-	private int Persondelete;
+    // Thong tin so luong ma
+    private int quality;
 
-	// Thong tin ngay cap nhat
-	private String Updateday;
+    // Thong tin ngay ap dung
+    private String Applyday;
 
-	// Thong tin ma nguoi cap nhat
-	private int Personupdate;
-	
-	@OneToMany(mappedBy = "discount")
-	List<Order> listOrder;
+    // Thong tin ngay het han
+    private String expiration;
+
+    // Thong tin so tien ap dung
+    private int Moneylimit;
+
+    // Thong tin ngay tao
+    private String Createday;
+
+    // Thong tin ma nguoi tao
+    private int Personcreate;
+
+    // Thong tin ngay xoa
+    private String Deleteday;
+
+    // Thong tin nguoi xoa
+    private int Persondelete;
+
+    // Thong tin ngay cap nhat
+    private String Updateday;
+
+    // Thong tin ma nguoi cap nhat
+    private int Personupdate;
+
+    @OneToMany(mappedBy = "discount")
+    List<Order> listOrder;
 
 }

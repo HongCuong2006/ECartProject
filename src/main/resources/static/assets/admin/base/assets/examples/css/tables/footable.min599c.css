@@ -4,4 +4,12 @@
  * Licensed under the Themeforest Standard Licenses
  */
 
-#exampleCustomFilter .footable-filtering{display:none}.form-group.required .control-label:after{content:"*";color:red;margin-left:4px}
+#exampleCustomFilter .footable-filtering {
+    display: none
+}
+
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+    margin-left: 4px
+}

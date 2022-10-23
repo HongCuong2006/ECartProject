@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Province {
-	private String code;
-	private Integer id;
-	private String name;
-	private List<District> districts;
+    private String code;
+    private Integer id;
+    private String name;
+    private List<District> districts;
 }

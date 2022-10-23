@@ -1,8 +1,8 @@
 /**
  * @(#)EmployeeRestController.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -23,7 +23,7 @@ import poly.store.service.UserRoleService;
 
 /**
  * Class cung cap cac dich vu rest api cho bang employee
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -31,16 +31,16 @@ import poly.store.service.UserRoleService;
 @RestController
 @RequestMapping("/rest/employees")
 public class EmployeeRestController {
-	@Autowired
-	UserRoleService userRoleService;
-	
-	@GetMapping()
-	public List<UserRole> getAll() {
-		return userRoleService.findAllAdminOrDirector();
-	}
-	
-	@DeleteMapping("{id}")
-	public void delete(@PathVariable("id") Integer id) {
-		userRoleService.delete(id);
-	}
+    @Autowired
+    UserRoleService userRoleService;
+
+    @GetMapping()
+    public List<UserRole> getAll() {
+        return userRoleService.findAllAdminOrDirector();
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        userRoleService.delete(id);
+    }
 }

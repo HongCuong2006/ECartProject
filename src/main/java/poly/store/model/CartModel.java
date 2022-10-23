@@ -13,11 +13,11 @@ import poly.store.entity.Product;
 @Getter
 @Setter
 public class CartModel {
-	private int id;
-	private Product product;
-//	private String name;
+    private int id;
+    private Product product;
+    // private String name;
 //	private String image;
-	private int quality;
+    private int quality;
 //	private int discount = 0;
 //	private int price;
 }

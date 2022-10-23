@@ -7,16 +7,16 @@ import poly.store.model.DiscountModel;
 
 public interface DiscountService {
 
-	DiscountModel createDiscount(DiscountModel discountModel);
+    DiscountModel createDiscount(DiscountModel discountModel);
 
-	List<Discount> findAll();
+    List<Discount> findAll();
 
-	DiscountModel getOneDiscountById(Integer id);
+    DiscountModel getOneDiscountById(Integer id);
 
-	void delete(Integer id);
+    void delete(Integer id);
 
-	DiscountModel updateDiscount(DiscountModel discountModel);
+    DiscountModel updateDiscount(DiscountModel discountModel);
 
-	Discount getDiscountByCode(String code);
+    Discount getDiscountByCode(String code);
 
 }

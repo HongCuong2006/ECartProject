@@ -13,26 +13,25 @@ import poly.store.service.InformationShopService;
 import poly.store.service.SessionService;
 import poly.store.service.ShoppingCartService;
 
-
 @Component
 public class GlobalInterceptor implements HandlerInterceptor {
-	@Autowired
-	CategoryService categoryService;
-	
-	@Autowired
-	InformationShopService informationService;
-	
-	@Autowired
-	SessionService sessionService;
-	
-	@Autowired
-	ShoppingCartService cartService;
+    @Autowired
+    CategoryService categoryService;
 
-	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
-			ModelAndView modelAndView) throws Exception {
-		request.setAttribute("categories", categoryService.findAll());
-		request.setAttribute("information", informationService.getOneInformationShop());
-		sessionService.set("sessionProduct", cartService);
-	}
+    @Autowired
+    InformationShopService informationService;
+
+    @Autowired
+    SessionService sessionService;
+
+    @Autowired
+    ShoppingCartService cartService;
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+            ModelAndView modelAndView) throws Exception {
+        request.setAttribute("categories", categoryService.findAll());
+        request.setAttribute("information", informationService.getOneInformationShop());
+        sessionService.set("sessionProduct", cartService);
+    }
 }

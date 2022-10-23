@@ -5,16 +5,16 @@ import java.util.List;
 import poly.store.entity.Manufacturer;
 import poly.store.model.ManufacturerModel;
 
-public interface ManufacturerService{
+public interface ManufacturerService {
 
-	ManufacturerModel createManufacturer(ManufacturerModel manufacturerModel);
+    ManufacturerModel createManufacturer(ManufacturerModel manufacturerModel);
 
-	List<Manufacturer> findAll();
+    List<Manufacturer> findAll();
 
-	ManufacturerModel getOneManufacturerById(Integer id);
+    ManufacturerModel getOneManufacturerById(Integer id);
 
-	void delete(Integer id);
+    void delete(Integer id);
 
-	ManufacturerModel updateManufacturer(ManufacturerModel manufacturerModel);
+    ManufacturerModel updateManufacturer(ManufacturerModel manufacturerModel);
 
 }

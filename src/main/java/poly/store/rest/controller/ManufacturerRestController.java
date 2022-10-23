@@ -1,8 +1,8 @@
 /**
  * @(#)CategoryRestController.java 2021/09/21.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/21.
  * Version 1.00.
  */
@@ -27,7 +27,7 @@ import poly.store.service.ManufacturerService;
 
 /**
  * Class cung cap cac dich vu rest api cho bang employee
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -35,31 +35,31 @@ import poly.store.service.ManufacturerService;
 @RestController
 @RequestMapping("/rest/manufactures")
 public class ManufacturerRestController {
-	@Autowired
-	ManufacturerService manufacturerService;
-	
-	@PostMapping("/form")
-	public ManufacturerModel create(@RequestBody ManufacturerModel manufacturerModel) {
-		return manufacturerService.createManufacturer(manufacturerModel);
-	}
-	
-	@GetMapping()
-	public List<Manufacturer> getAll(){
-		return manufacturerService.findAll();
-	}
-	
-	@GetMapping("/form/{id}")
-	public ManufacturerModel getOneUserById(@PathVariable("id") Integer id) {
-		return manufacturerService.getOneManufacturerById(id);
-	}
-	
-	@DeleteMapping("{id}")
-	public void delete(@PathVariable("id") Integer id) {
-		manufacturerService.delete(id);
-	}
-	
-	@PutMapping("/form/{id}")
-	public ManufacturerModel update(@PathVariable("id") Integer id, @RequestBody ManufacturerModel manufacturerModel) {
-		return manufacturerService.updateManufacturer(manufacturerModel);
-	}
+    @Autowired
+    ManufacturerService manufacturerService;
+
+    @PostMapping("/form")
+    public ManufacturerModel create(@RequestBody ManufacturerModel manufacturerModel) {
+        return manufacturerService.createManufacturer(manufacturerModel);
+    }
+
+    @GetMapping()
+    public List<Manufacturer> getAll() {
+        return manufacturerService.findAll();
+    }
+
+    @GetMapping("/form/{id}")
+    public ManufacturerModel getOneUserById(@PathVariable("id") Integer id) {
+        return manufacturerService.getOneManufacturerById(id);
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        manufacturerService.delete(id);
+    }
+
+    @PutMapping("/form/{id}")
+    public ManufacturerModel update(@PathVariable("id") Integer id, @RequestBody ManufacturerModel manufacturerModel) {
+        return manufacturerService.updateManufacturer(manufacturerModel);
+    }
 }

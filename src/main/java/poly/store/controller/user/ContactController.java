@@ -7,8 +7,8 @@ import poly.store.common.Constants;
 
 @Controller
 public class ContactController {
-	@GetMapping("/contact")
-	public String index() {
-		return Constants.USER_DISPLAY_CONTACT;
-	}
+    @GetMapping("/contact")
+    public String index() {
+        return Constants.USER_DISPLAY_CONTACT;
+    }
 }

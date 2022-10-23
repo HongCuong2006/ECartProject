@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AlertModel {
-	private String content;
-	private String alert;
-	private boolean display;
+    private String content;
+    private String alert;
+    private boolean display;
 }

@@ -20,16 +20,16 @@ import poly.store.service.UploadService;
 @CrossOrigin("*")
 @RestController
 public class UploadRestController {
-	@Autowired
-	UploadService uploadService;
+    @Autowired
+    UploadService uploadService;
 
-	@PostMapping("/rest/upload/{folder}")
-	public JsonNode upload(@PathParam("file") MultipartFile file, @PathVariable("folder") String folder) {
-		File savedFile = uploadService.save(file, folder);
-		ObjectMapper mapper = new ObjectMapper();
-		ObjectNode node = mapper.createObjectNode();
-		node.put("name", savedFile.getName());
-		node.put("size", savedFile.length());
-		return node;
-	}
+    @PostMapping("/rest/upload/{folder}")
+    public JsonNode upload(@PathParam("file") MultipartFile file, @PathVariable("folder") String folder) {
+        File savedFile = uploadService.save(file, folder);
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode node = mapper.createObjectNode();
+        node.put("name", savedFile.getName());
+        node.put("size", savedFile.length());
+        return node;
+    }
 }

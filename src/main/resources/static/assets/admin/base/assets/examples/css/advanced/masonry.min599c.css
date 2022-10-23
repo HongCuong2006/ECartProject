@@ -4,4 +4,10 @@
  * Licensed under the Themeforest Standard Licenses
  */
 
-.page-content .blocks>li{margin-bottom:30px}.page-content .blocks>li>.card{margin-bottom:0}
+.page-content .blocks > li {
+    margin-bottom: 30px
+}
+
+.page-content .blocks > li > .card {
+    margin-bottom: 0
+}

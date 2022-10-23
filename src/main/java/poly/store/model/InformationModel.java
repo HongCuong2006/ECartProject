@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class InformationModel {
-	private String fullName;
-	private String email;
-	private String password;
-	private String birthday;
-	private int gender;
-	private int news;
+    private String fullName;
+    private String email;
+    private String password;
+    private String birthday;
+    private int gender;
+    private int news;
 }

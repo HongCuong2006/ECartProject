@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StatisticalRevenue {
-	private double price;
-	private int date;
+    private double price;
+    private int date;
 }

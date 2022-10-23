@@ -1,8 +1,8 @@
 /**
  * @(#)UserLogin.java 2021/09/09.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/09.
  * Version 1.00.
  */
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class lam viec voi form login.html
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -22,8 +22,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserLogin {
-	// Thong tin user name
-	private String username;
-	// Thong tin password
-	private String password;
+    // Thong tin user name
+    private String username;
+    // Thong tin password
+    private String password;
 }

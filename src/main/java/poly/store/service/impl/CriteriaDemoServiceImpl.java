@@ -16,24 +16,23 @@ import poly.store.entity.Product;
 import poly.store.service.CriteriaDemoService;
 
 @Service
-public class CriteriaDemoServiceImpl implements CriteriaDemoService{
-	@PersistenceContext
-	private EntityManager em;
-	
-	@Override
-	public List<Product> getAll() {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Product> cq = cb.createQuery(Product.class);
-		Root<Product> from = cq.from(Product.class);
-		
-		
-		Predicate price = cb.equal(from.get("price"), 6490000);
-		Predicate price2 = cb.between(from.get("price"), 3000000, 6490000);
-		
-		cq.where(price2);
-		TypedQuery<Product> q = em.createQuery(cq);
-		List<Product> allitems = q.getResultList();
-		return allitems;
-	}
+public class CriteriaDemoServiceImpl implements CriteriaDemoService {
+    @PersistenceContext
+    private EntityManager em;
+
+    @Override
+    public List<Product> getAll() {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+        Root<Product> from = cq.from(Product.class);
+
+        Predicate price = cb.equal(from.get("price"), 6490000);
+        Predicate price2 = cb.between(from.get("price"), 3000000, 6490000);
+
+        cq.where(price2);
+        TypedQuery<Product> q = em.createQuery(cq);
+        List<Product> allitems = q.getResultList();
+        return allitems;
+    }
 
 }

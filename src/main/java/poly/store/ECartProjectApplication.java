@@ -8,8 +8,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class ECartProjectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ECartProjectApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ECartProjectApplication.class, args);
+    }
 
 }

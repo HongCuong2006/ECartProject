@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ward {
-	private int id;
-	private String name;
-	private String prefix;
+    private int id;
+    private String name;
+    private String prefix;
 }

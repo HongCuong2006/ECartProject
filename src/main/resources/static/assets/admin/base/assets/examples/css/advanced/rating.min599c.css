@@ -4,4 +4,8 @@
  * Licensed under the Themeforest Standard Licenses
  */
 
-.rating-hint{display:inline;margin-left:10px;vertical-align:sub}
+.rating-hint {
+    display: inline;
+    margin-left: 10px;
+    vertical-align: sub
+}

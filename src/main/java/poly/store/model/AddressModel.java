@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddressModel {
-	private String fullName;
-	private String detail;
-	private String phone;
-	private String province;
-	private String district;
-	private String ward;
+    private String fullName;
+    private String detail;
+    private String phone;
+    private String province;
+    private String district;
+    private String ward;
 }

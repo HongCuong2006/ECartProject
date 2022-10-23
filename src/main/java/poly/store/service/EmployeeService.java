@@ -1,8 +1,8 @@
 /**
  * @(#)RoleService.java 2021/09/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/10.
  * Version 1.00.
  */
@@ -15,14 +15,14 @@ import poly.store.model.EmployeeModel;
 
 /**
  * Class cung cap cac dich vu thao tac voi table Employee trong database
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 public interface EmployeeService {
 
-	List<EmployeeModel> getListEmployee();
+    List<EmployeeModel> getListEmployee();
 
-	void save(Employee employee);
-	
+    void save(Employee employee);
+
 }

@@ -7,8 +7,8 @@ import poly.store.common.Constants;
 
 @Controller
 public class ChangePasswordController {
-	@GetMapping("/account/change-password")
-	public String index() {
-		return Constants.USER_DISPLAY_ACCOUNT_CHANGE_PASSWORD;
-	}
+    @GetMapping("/account/change-password")
+    public String index() {
+        return Constants.USER_DISPLAY_ACCOUNT_CHANGE_PASSWORD;
+    }
 }

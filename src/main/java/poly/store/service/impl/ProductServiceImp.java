@@ -1,8 +1,8 @@
 /**
  * @(#)UserServiceImpl.java 2021/10/10.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/10/10.
  * Version 1.00.
  */
@@ -44,293 +44,293 @@ import poly.store.service.ProductService;
 /**
  * Class trien khai theo interface UserService, Thao tac voi Class UserDao de
  * thuc hien cac tac vu tuong ung
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 @Service
 public class ProductServiceImp implements ProductService {
-	@Autowired
-	ProductDao productDao;
+    @Autowired
+    ProductDao productDao;
 
-	@Autowired
-	UserDao userDao;
+    @Autowired
+    UserDao userDao;
 
-	@Autowired
-	ManufacturerDao manufacturerDao;
+    @Autowired
+    ManufacturerDao manufacturerDao;
 
-	@Autowired
-	CategoryDao categoryDao;
-	
-	@Autowired
-	CommentService commentService;
+    @Autowired
+    CategoryDao categoryDao;
 
-	@PersistenceContext
-	private EntityManager em;
+    @Autowired
+    CommentService commentService;
 
-	@Override
-	public ProductModel createProduct(ProductModel productModel) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
+    @PersistenceContext
+    private EntityManager em;
 
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		User temp = userDao.findUserByEmail(username);
+    @Override
+    public ProductModel createProduct(ProductModel productModel) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
 
-		Product product = new Product();
-		product.setCode(productModel.getCode());
-		product.setName(productModel.getName());
-		product.setPrice(productModel.getPrice());
-		product.setPoint(productModel.getPoint());
-		product.setQuality(productModel.getQuality());
-		product.setDescription(productModel.getDescription());
-		product.setSpecification(productModel.getSpecification());
-		product.setImage1(productModel.getImage1());
-		product.setImage2(productModel.getImage2());
-		product.setImage3(productModel.getImage3());
-		product.setImage4(productModel.getImage4());
-		product.setImage5(productModel.getImage5());
-		product.setActive(productModel.isActive());
-		product.setNamesearch(productModel.getNameSearch());
-		product.setColor(productModel.getColor());
-		product.setMemory(productModel.getMemory());
-		product.setCreateday(timestamp.toString());
-		product.setPersoncreate(temp.getId());
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        User temp = userDao.findUserByEmail(username);
 
-		Manufacturer manufacturer = manufacturerDao.findById(productModel.getManuId()).get();
-		Category category = categoryDao.findById(productModel.getCateId()).get();
+        Product product = new Product();
+        product.setCode(productModel.getCode());
+        product.setName(productModel.getName());
+        product.setPrice(productModel.getPrice());
+        product.setPoint(productModel.getPoint());
+        product.setQuality(productModel.getQuality());
+        product.setDescription(productModel.getDescription());
+        product.setSpecification(productModel.getSpecification());
+        product.setImage1(productModel.getImage1());
+        product.setImage2(productModel.getImage2());
+        product.setImage3(productModel.getImage3());
+        product.setImage4(productModel.getImage4());
+        product.setImage5(productModel.getImage5());
+        product.setActive(productModel.isActive());
+        product.setNamesearch(productModel.getNameSearch());
+        product.setColor(productModel.getColor());
+        product.setMemory(productModel.getMemory());
+        product.setCreateday(timestamp.toString());
+        product.setPersoncreate(temp.getId());
 
-		product.setCategory(category);
-		product.setManufacturer(manufacturer);
+        Manufacturer manufacturer = manufacturerDao.findById(productModel.getManuId()).get();
+        Category category = categoryDao.findById(productModel.getCateId()).get();
 
-		productDao.save(product);
+        product.setCategory(category);
+        product.setManufacturer(manufacturer);
 
-		return productModel;
-	}
+        productDao.save(product);
 
-	@Override
-	public List<Product> findAll() {
-		return productDao.getListProduct();
-	}
+        return productModel;
+    }
 
-	@Override
-	public void delete(Integer id) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
-		User temp = userDao.findUserByEmail(username);
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    @Override
+    public List<Product> findAll() {
+        return productDao.getListProduct();
+    }
 
-		Product product = productDao.findById(id).get();
-		product.setDeleteday(timestamp.toString());
-		product.setPersondelete(temp.getId());
-		productDao.save(product);
-	}
+    @Override
+    public void delete(Integer id) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
+        User temp = userDao.findUserByEmail(username);
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-	@Override
-	public ProductModel updateProduct(ProductModel productModel) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
+        Product product = productDao.findById(id).get();
+        product.setDeleteday(timestamp.toString());
+        product.setPersondelete(temp.getId());
+        productDao.save(product);
+    }
 
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-		User temp = userDao.findUserByEmail(username);
+    @Override
+    public ProductModel updateProduct(ProductModel productModel) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
 
-		Product product = productDao.findById(productModel.getId()).get();
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        User temp = userDao.findUserByEmail(username);
 
-		product.setCode(productModel.getCode());
-		product.setName(productModel.getName());
-		product.setPrice(productModel.getPrice());
-		product.setPoint(productModel.getPoint());
-		product.setQuality(productModel.getQuality());
-		product.setDescription(productModel.getDescription());
-		product.setSpecification(productModel.getSpecification());
-		product.setImage1(productModel.getImage1());
-		product.setImage2(productModel.getImage2());
-		product.setImage3(productModel.getImage3());
-		product.setImage4(productModel.getImage4());
-		product.setImage5(productModel.getImage5());
-		product.setActive(productModel.isActive());
-		product.setNamesearch(productModel.getNameSearch());
-		product.setColor(productModel.getColor());
-		product.setMemory(productModel.getMemory());
-		product.setUpdateday(timestamp.toString());
-		product.setPersonupdate(temp.getId());
+        Product product = productDao.findById(productModel.getId()).get();
 
-		Manufacturer manufacturer = manufacturerDao.findById(productModel.getManuId()).get();
-		Category category = categoryDao.findById(productModel.getCateId()).get();
+        product.setCode(productModel.getCode());
+        product.setName(productModel.getName());
+        product.setPrice(productModel.getPrice());
+        product.setPoint(productModel.getPoint());
+        product.setQuality(productModel.getQuality());
+        product.setDescription(productModel.getDescription());
+        product.setSpecification(productModel.getSpecification());
+        product.setImage1(productModel.getImage1());
+        product.setImage2(productModel.getImage2());
+        product.setImage3(productModel.getImage3());
+        product.setImage4(productModel.getImage4());
+        product.setImage5(productModel.getImage5());
+        product.setActive(productModel.isActive());
+        product.setNamesearch(productModel.getNameSearch());
+        product.setColor(productModel.getColor());
+        product.setMemory(productModel.getMemory());
+        product.setUpdateday(timestamp.toString());
+        product.setPersonupdate(temp.getId());
 
-		product.setCategory(category);
-		product.setManufacturer(manufacturer);
+        Manufacturer manufacturer = manufacturerDao.findById(productModel.getManuId()).get();
+        Category category = categoryDao.findById(productModel.getCateId()).get();
 
-		productDao.save(product);
-		return productModel;
-	}
+        product.setCategory(category);
+        product.setManufacturer(manufacturer);
 
-	@Override
-	public ProductModel getOneProductById(Integer id) {
-		Product product = productDao.findById(id).get();
-		ProductModel productModel = new ProductModel();
-		productModel.setId(product.getId());
-		productModel.setCode(product.getCode());
-		productModel.setName(product.getName());
-		productModel.setPrice(product.getPrice());
-		productModel.setPoint(product.getPoint());
-		productModel.setQuality(product.getQuality());
-		productModel.setImage1(product.getImage1());
-		productModel.setImage2(product.getImage2());
-		productModel.setImage3(product.getImage3());
-		productModel.setImage4(product.getImage4());
-		productModel.setImage5(product.getImage5());
-		productModel.setNameSearch(product.getNamesearch());
-		productModel.setColor(product.getColor());
-		productModel.setMemory(product.getMemory());
-		productModel.setActive(product.isActive());
-		productModel.setManuId(product.getManufacturer().getId());
-		productModel.setCateId(product.getCategory().getId());
-		productModel.setDescription(product.getDescription());
-		productModel.setSpecification(product.getSpecification());
-		return productModel;
-	}
+        productDao.save(product);
+        return productModel;
+    }
 
-	@Override
-	public List<Product> getListLatestProduct() {
-		return productDao.getListLatestProduct();
-	}
+    @Override
+    public ProductModel getOneProductById(Integer id) {
+        Product product = productDao.findById(id).get();
+        ProductModel productModel = new ProductModel();
+        productModel.setId(product.getId());
+        productModel.setCode(product.getCode());
+        productModel.setName(product.getName());
+        productModel.setPrice(product.getPrice());
+        productModel.setPoint(product.getPoint());
+        productModel.setQuality(product.getQuality());
+        productModel.setImage1(product.getImage1());
+        productModel.setImage2(product.getImage2());
+        productModel.setImage3(product.getImage3());
+        productModel.setImage4(product.getImage4());
+        productModel.setImage5(product.getImage5());
+        productModel.setNameSearch(product.getNamesearch());
+        productModel.setColor(product.getColor());
+        productModel.setMemory(product.getMemory());
+        productModel.setActive(product.isActive());
+        productModel.setManuId(product.getManufacturer().getId());
+        productModel.setCateId(product.getCategory().getId());
+        productModel.setDescription(product.getDescription());
+        productModel.setSpecification(product.getSpecification());
+        return productModel;
+    }
 
-	@Override
-	public List<Product> getListViewsProduct() {
-		return productDao.getListViewsProduct();
-	}
+    @Override
+    public List<Product> getListLatestProduct() {
+        return productDao.getListLatestProduct();
+    }
 
-	@Override
-	public Page<Product> getListProductByNameSearch(String nameSearch, Pageable pageable) {
-		return productDao.getListProductByNameSearch(nameSearch, pageable);
-	}
+    @Override
+    public List<Product> getListViewsProduct() {
+        return productDao.getListViewsProduct();
+    }
 
-	@Override
-	public List<Product> getDemo(String nameSearch) {
-		// TODO Auto-generated method stub
-		return productDao.getListDemo(nameSearch);
-	}
+    @Override
+    public Page<Product> getListProductByNameSearch(String nameSearch, Pageable pageable) {
+        return productDao.getListProductByNameSearch(nameSearch, pageable);
+    }
 
-	@Override
-	public Page<Product> getListProductByPrice(String nameSearch, int minPrice, int maxPrice, Pageable pageable) {
-		// TODO Auto-generated method stub
-		return productDao.getListProductByPrice(nameSearch, minPrice, maxPrice, pageable);
-	}
+    @Override
+    public List<Product> getDemo(String nameSearch) {
+        // TODO Auto-generated method stub
+        return productDao.getListDemo(nameSearch);
+    }
 
-	@Override
-	public Page<ShowProduct> getListProductByFilter(String nameSearch, String price, String manu, String sort,
-			Pageable pageable) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Product> cq = cb.createQuery(Product.class);
-		Root<Product> from = cq.from(Product.class);
+    @Override
+    public Page<Product> getListProductByPrice(String nameSearch, int minPrice, int maxPrice, Pageable pageable) {
+        // TODO Auto-generated method stub
+        return productDao.getListProductByPrice(nameSearch, minPrice, maxPrice, pageable);
+    }
 
-		Predicate preNameSearch = cb.like(from.get("category").get("Namesearch"), "%" + nameSearch + "%");
+    @Override
+    public Page<ShowProduct> getListProductByFilter(String nameSearch, String price, String manu, String sort,
+            Pageable pageable) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+        Root<Product> from = cq.from(Product.class);
 
-		int check = 0;
-		Predicate prePrice = null;
-		Predicate preManu = null;
+        Predicate preNameSearch = cb.like(from.get("category").get("Namesearch"), "%" + nameSearch + "%");
 
-		if (price != null) {
-			int min = 0;
-			int max = 999999999;
-			if (price.equals("1")) {
-				max = 3000000;
-			} else if (price.equals("2")) {
-				min = 3000000;
-				max = 5000000;
-			} else if (price.equals("3")) {
-				min = 5000000;
-				max = 8000000;
-			} else if (price.equals("4")) {
-				min = 8000000;
-				max = 13000000;
-			} else {
-				min = 13000000;
-			}
-			check = 1;
-			prePrice = cb.between(from.get("price"), min, max);
-		}
+        int check = 0;
+        Predicate prePrice = null;
+        Predicate preManu = null;
 
-		if (manu != null) {
-			preManu = cb.equal(from.get("manufacturer").get("id"), Integer.parseInt(manu));
-			if (check == 1) {
-				check = 3;
-			} else {
-				check = 2;
-			}
-		}
+        if (price != null) {
+            int min = 0;
+            int max = 999999999;
+            if (price.equals("1")) {
+                max = 3000000;
+            } else if (price.equals("2")) {
+                min = 3000000;
+                max = 5000000;
+            } else if (price.equals("3")) {
+                min = 5000000;
+                max = 8000000;
+            } else if (price.equals("4")) {
+                min = 8000000;
+                max = 13000000;
+            } else {
+                min = 13000000;
+            }
+            check = 1;
+            prePrice = cb.between(from.get("price"), min, max);
+        }
 
-		if (check == 1) {
-			cq.where(prePrice, preNameSearch);
-		} else if (check == 2) {
-			cq.where(preManu, preNameSearch);
-		} else if (check == 3) {
-			cq.where(prePrice, preManu, preNameSearch);
-		} else {
-			cq.where(preNameSearch);
-			// cq.select(from);
-		}
+        if (manu != null) {
+            preManu = cb.equal(from.get("manufacturer").get("id"), Integer.parseInt(manu));
+            if (check == 1) {
+                check = 3;
+            } else {
+                check = 2;
+            }
+        }
 
-		if (sort != null) {
-			if (sort.equals("1")) {
-				cq.orderBy(cb.asc(from.get("name")));
-			}
-			if (sort.equals("2")) {
-				cq.orderBy(cb.desc(from.get("name")));
-			}
-			if (sort.equals("3")) {
-				cq.orderBy(cb.asc(from.get("price")));
-			}
-			if (sort.equals("4")) {
-				cq.orderBy(cb.desc(from.get("price")));
-			}
-		}
+        if (check == 1) {
+            cq.where(prePrice, preNameSearch);
+        } else if (check == 2) {
+            cq.where(preManu, preNameSearch);
+        } else if (check == 3) {
+            cq.where(prePrice, preManu, preNameSearch);
+        } else {
+            cq.where(preNameSearch);
+            // cq.select(from);
+        }
 
-		TypedQuery<Product> q = em.createQuery(cq);
+        if (sort != null) {
+            if (sort.equals("1")) {
+                cq.orderBy(cb.asc(from.get("name")));
+            }
+            if (sort.equals("2")) {
+                cq.orderBy(cb.desc(from.get("name")));
+            }
+            if (sort.equals("3")) {
+                cq.orderBy(cb.asc(from.get("price")));
+            }
+            if (sort.equals("4")) {
+                cq.orderBy(cb.desc(from.get("price")));
+            }
+        }
 
-		List<Product> countAllItems = q.getResultList();
+        TypedQuery<Product> q = em.createQuery(cq);
 
-		q.setFirstResult(Math.toIntExact(pageable.getOffset()));
-		q.setMaxResults(pageable.getPageSize());
+        List<Product> countAllItems = q.getResultList();
 
-		List<Product> getAllItems = q.getResultList();
+        q.setFirstResult(Math.toIntExact(pageable.getOffset()));
+        q.setMaxResults(pageable.getPageSize());
 
-		List<ShowProduct> listProduct = new ArrayList<ShowProduct>();
+        List<Product> getAllItems = q.getResultList();
 
-		for (Product product : getAllItems) {
-			ShowProduct showProduct = new ShowProduct();
-			int totalStar = commentService.getAllStarCommentByProductNameSearch(product.getNamesearch());
-			showProduct.setProduct(product);
-			showProduct.setTotalStar(totalStar);
-			listProduct.add(showProduct);
-		}
+        List<ShowProduct> listProduct = new ArrayList<ShowProduct>();
 
-		Page<ShowProduct> page = new PageImpl<ShowProduct>(listProduct, pageable, countAllItems.size());
+        for (Product product : getAllItems) {
+            ShowProduct showProduct = new ShowProduct();
+            int totalStar = commentService.getAllStarCommentByProductNameSearch(product.getNamesearch());
+            showProduct.setProduct(product);
+            showProduct.setTotalStar(totalStar);
+            listProduct.add(showProduct);
+        }
 
-		return page;
-	}
+        Page<ShowProduct> page = new PageImpl<ShowProduct>(listProduct, pageable, countAllItems.size());
 
-	@Override
-	public Product getProductByNameSearch(String nameSearch) {
-		return productDao.getProductByNameSearch(nameSearch);
-	}
+        return page;
+    }
 
-	@Override
-	public List<Product> getListProductRelated(int id) {
-		return productDao.getListProductRelated(id);
-	}
+    @Override
+    public Product getProductByNameSearch(String nameSearch) {
+        return productDao.getProductByNameSearch(nameSearch);
+    }
 
-	@Override
-	public void updateView(String nameSearch) {
-		Product product = productDao.getProductByNameSearch(nameSearch);
-		int view = product.getViews();
-		product.setViews(view + 1);
-		productDao.save(product);
-	}
+    @Override
+    public List<Product> getListProductRelated(int id) {
+        return productDao.getListProductRelated(id);
+    }
 
-	@Override
-	public void updateQuality(Product product) {
-		productDao.save(product);
-	}
+    @Override
+    public void updateView(String nameSearch) {
+        Product product = productDao.getProductByNameSearch(nameSearch);
+        int view = product.getViews();
+        product.setViews(view + 1);
+        productDao.save(product);
+    }
+
+    @Override
+    public void updateQuality(Product product) {
+        productDao.save(product);
+    }
 
 }

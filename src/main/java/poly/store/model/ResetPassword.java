@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResetPassword {
-	// Thong tin mat khau
-	private String password;
-	// Thong tin xac nhan mat khau
-	private String confirmPassword;
+    // Thong tin mat khau
+    private String password;
+    // Thong tin xac nhan mat khau
+    private String confirmPassword;
 }

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChangePassModel {
-	private String oldPass;
-	private String newPass;
-	private String confirmPass;
+    private String oldPass;
+    private String newPass;
+    private String confirmPass;
 }

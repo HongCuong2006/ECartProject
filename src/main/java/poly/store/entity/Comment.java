@@ -18,25 +18,25 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Comments")
 public class Comment {
-	// Thong tin comment id
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+    // Thong tin comment id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	private String content;
-	private int star;
-	private String date;
-	private String status;
+    private String content;
+    private int star;
+    private String date;
+    private String status;
 
-	// Thong tin nguoi dung
-	//@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "User_Id")
-	User user;
+    // Thong tin nguoi dung
+    // @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "User_Id")
+    User user;
 
-	// Thong tin san pham
-	//@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "Product_Id")
-	Product product;
+    // Thong tin san pham
+    // @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "Product_Id")
+    Product product;
 }

@@ -6,12 +6,12 @@ import poly.store.entity.Favorite;
 
 public interface FavoriteService {
 
-	Favorite create(int id);
+    Favorite create(int id);
 
-	List<Favorite> getListFavoriteByEmail();
+    List<Favorite> getListFavoriteByEmail();
 
-	void delete(int id);
+    void delete(int id);
 
-	Favorite getOneFavorite(int id);
+    Favorite getOneFavorite(int id);
 
 }

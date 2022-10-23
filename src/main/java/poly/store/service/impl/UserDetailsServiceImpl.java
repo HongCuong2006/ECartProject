@@ -1,8 +1,8 @@
 /**
  * @(#)UserDetailsServiceImpl.java 2021/09/09
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX FIVE
- * 
+ * <p>
  * Last_Update 2021/09/09
  * Version 1.00.
  */
@@ -27,58 +27,57 @@ import org.springframework.security.core.userdetails.User;
 
 /**
  * Class dung de phan quyen cho project
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
-	
-	// Thong tin user service;
-	@Autowired
-	private UserService userService;
-	
-	// Thong tin role service
-	@Autowired
-	private RoleService roleService;
-	
-	@Autowired
-	private BCryptPasswordEncoder pe;
-	
-	/**
-	 * Cung cap quyen cho project
-	 * 
-	 * @param username
-	 * @return userDetails
-	 * @exception UsernameNotFoundException
-	 */
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		poly.store.entity.User appUser = this.userService.findUserByEmail(username);
-		if(appUser == null) {
-			System.out.println("User not found! "+username);
-			throw new UsernameNotFoundException("User " + username + " was not found in database");		
-		}
-		else {
-			System.out.println("User found! "+username);
-			System.out.println("Password: " + appUser.getPassword());
-		}
-		
-		List<String> roleNames = this.roleService.getRoleNames(appUser.getId());
-		List<GrantedAuthority> grandList = new ArrayList<GrantedAuthority>();
-		
-		if(roleNames!=null) {
-			for(String role: roleNames) {
-				System.out.println(role);
-				GrantedAuthority authority = new SimpleGrantedAuthority(role);
-				grandList.add(authority);
-			}
-		}
-		String password = pe.encode(appUser.getPassword());
-		UserDetails userDetails = (UserDetails) new User(appUser.getEmail(), password, grandList);
-		
-		return userDetails;
-	}
+    // Thong tin user service;
+    @Autowired
+    private UserService userService;
+
+    // Thong tin role service
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private BCryptPasswordEncoder pe;
+
+    /**
+     * Cung cap quyen cho project
+     *
+     * @param username
+     * @return userDetails
+     * @exception UsernameNotFoundException
+     */
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        poly.store.entity.User appUser = this.userService.findUserByEmail(username);
+        if (appUser == null) {
+            System.out.println("User not found! " + username);
+            throw new UsernameNotFoundException("User " + username + " was not found in database");
+        } else {
+            System.out.println("User found! " + username);
+            System.out.println("Password: " + appUser.getPassword());
+        }
+
+        List<String> roleNames = this.roleService.getRoleNames(appUser.getId());
+        List<GrantedAuthority> grandList = new ArrayList<GrantedAuthority>();
+
+        if (roleNames != null) {
+            for (String role : roleNames) {
+                System.out.println(role);
+                GrantedAuthority authority = new SimpleGrantedAuthority(role);
+                grandList.add(authority);
+            }
+        }
+        String password = pe.encode(appUser.getPassword());
+        UserDetails userDetails = (UserDetails) new User(appUser.getEmail(), password, grandList);
+
+        return userDetails;
+    }
 
 }

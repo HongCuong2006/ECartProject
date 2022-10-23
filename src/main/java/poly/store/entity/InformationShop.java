@@ -1,8 +1,8 @@
 /**
  * @(#)Category.java 2021/09/28.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/09/28.
  * Version 1.00.
  */
@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class chua thong tin cua hang
- * 
+ *
  * @author tuan-pm
  * @version 1.00
  */
@@ -33,53 +33,53 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Informationshop")
 public class InformationShop implements Serializable {
-	// Thong tin category id
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	// Thong tin ten shop
-	private String name;
-	
-	// Thong tin trang thai kich hoat
-	private boolean active;
-	
-	// Thong tin thoi gian mo cua
-	private String Timeopen;
+    // Thong tin category id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	// Thong tin logo
-	private String logo;
+    // Thong tin ten shop
+    private String name;
 
-	// Thong tin so dien thoai
-	private String phone;
+    // Thong tin trang thai kich hoat
+    private boolean active;
 
-	// Thong tin tax
-	private String fax;
+    // Thong tin thoi gian mo cua
+    private String Timeopen;
 
-	// Thong tin email
-	private String email;
+    // Thong tin logo
+    private String logo;
 
-	// Thong tin logo footer
-	private String Logofooter;
+    // Thong tin so dien thoai
+    private String phone;
 
-	// Thong tin dia chi shop
-	private String address;
+    // Thong tin tax
+    private String fax;
 
-	// Thong tin ngay tao
-	private String Createday;
+    // Thong tin email
+    private String email;
 
-	// Thong tin ma nguoi tao
-	private int Personcreate;
+    // Thong tin logo footer
+    private String Logofooter;
 
-	// Thong tin ngay xoa
-	private String Deleteday;
+    // Thong tin dia chi shop
+    private String address;
 
-	// Thong tin nguoi xoa
-	private int Persondelete;
+    // Thong tin ngay tao
+    private String Createday;
 
-	// Thong tin ngay cap nhat
-	private String Updateday;
+    // Thong tin ma nguoi tao
+    private int Personcreate;
 
-	// Thong tin ma nguoi cap nhat
-	private int Personupdate;
+    // Thong tin ngay xoa
+    private String Deleteday;
+
+    // Thong tin nguoi xoa
+    private int Persondelete;
+
+    // Thong tin ngay cap nhat
+    private String Updateday;
+
+    // Thong tin ma nguoi cap nhat
+    private int Personupdate;
 }

@@ -4,10 +4,10 @@ import poly.store.model.EmployeeForm;
 
 public interface GeneralService {
 
-	EmployeeForm createEmployee(EmployeeForm employee);
+    EmployeeForm createEmployee(EmployeeForm employee);
 
-	EmployeeForm getOneUserById(Integer id);
+    EmployeeForm getOneUserById(Integer id);
 
-	EmployeeForm updateEmployee(EmployeeForm employeeForm);
+    EmployeeForm updateEmployee(EmployeeForm employeeForm);
 
 }

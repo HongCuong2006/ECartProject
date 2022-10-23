@@ -21,36 +21,36 @@ import poly.store.service.DiscountService;
 @RestController
 @RequestMapping("/rest/discount")
 public class DiscountRestController {
-	@Autowired
-	DiscountService discountService;
-	
-	@PostMapping("/form")
-	public DiscountModel create(@RequestBody DiscountModel discountModel) {
-		return discountService.createDiscount(discountModel);
-	}
-	
-	@GetMapping()
-	public List<Discount> getAll(){
-		return discountService.findAll();
-	}
-	
-	@GetMapping("/form/{id}")
-	public DiscountModel getOneUserById(@PathVariable("id") Integer id) {
-		return discountService.getOneDiscountById(id);
-	}
-	
-	@DeleteMapping("{id}")
-	public void delete(@PathVariable("id") Integer id) {
-		discountService.delete(id);
-	}
-	
-	@PutMapping("/form/{id}")
-	public DiscountModel update(@PathVariable("id") Integer id, @RequestBody DiscountModel discountModel) {
-		return discountService.updateDiscount(discountModel);
-	}
-	
-	@GetMapping("/apply/{code}")
-	public Discount getDiscountByCode(@PathVariable("code") String code) {
-		return discountService.getDiscountByCode(code);
-	}
+    @Autowired
+    DiscountService discountService;
+
+    @PostMapping("/form")
+    public DiscountModel create(@RequestBody DiscountModel discountModel) {
+        return discountService.createDiscount(discountModel);
+    }
+
+    @GetMapping()
+    public List<Discount> getAll() {
+        return discountService.findAll();
+    }
+
+    @GetMapping("/form/{id}")
+    public DiscountModel getOneUserById(@PathVariable("id") Integer id) {
+        return discountService.getOneDiscountById(id);
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        discountService.delete(id);
+    }
+
+    @PutMapping("/form/{id}")
+    public DiscountModel update(@PathVariable("id") Integer id, @RequestBody DiscountModel discountModel) {
+        return discountService.updateDiscount(discountModel);
+    }
+
+    @GetMapping("/apply/{code}")
+    public Discount getDiscountByCode(@PathVariable("code") String code) {
+        return discountService.getDiscountByCode(code);
+    }
 }

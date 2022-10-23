@@ -5,6 +5,6 @@ import java.util.ArrayList;
 import poly.store.entity.Province;
 
 @SuppressWarnings("serial")
-public class ProvinceDao extends ArrayList<Province>{
+public class ProvinceDao extends ArrayList<Province> {
 
 }

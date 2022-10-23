@@ -14,25 +14,25 @@ import poly.store.service.UploadService;
 
 @Service
 public class UploadServiceImpl implements UploadService {
-	@Autowired
-	ServletContext app;
-	
-	@Override
-	public File save(MultipartFile file, String folder) {
-		File dir = new File("src/main/resources/static/assets/images/" + folder);
-		if(!dir.exists()) {
-			dir.mkdirs();
-		}
-		String name = file.getOriginalFilename();
-		try {
-			File savedFile = new File(dir, name);
-			BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(savedFile));
-			stream.write(file.getBytes());
-			stream.close();
-			return savedFile;
-		}catch(Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
+    @Autowired
+    ServletContext app;
+
+    @Override
+    public File save(MultipartFile file, String folder) {
+        File dir = new File("src/main/resources/static/assets/images/" + folder);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        String name = file.getOriginalFilename();
+        try {
+            File savedFile = new File(dir, name);
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(savedFile));
+            stream.write(file.getBytes());
+            stream.close();
+            return savedFile;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

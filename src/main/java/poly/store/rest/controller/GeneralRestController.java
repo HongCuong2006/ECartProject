@@ -17,21 +17,21 @@ import poly.store.service.GeneralService;
 @RestController
 @RequestMapping("/rest/form/employee")
 public class GeneralRestController {
-	@Autowired
-	GeneralService generalService;
-	
-	@PostMapping
-	public EmployeeForm create(@RequestBody EmployeeForm employee) {
-		return generalService.createEmployee(employee);
-	}
-	
-	@GetMapping("{id}")
-	public EmployeeForm getOneUserById(@PathVariable("id") Integer id) {
-		return generalService.getOneUserById(id);
-	}
-	
-	@PutMapping("{id}")
-	public EmployeeForm update(@PathVariable("id") Integer id, @RequestBody EmployeeForm employeeForm) {
-		return generalService.updateEmployee(employeeForm);
-	}
+    @Autowired
+    GeneralService generalService;
+
+    @PostMapping
+    public EmployeeForm create(@RequestBody EmployeeForm employee) {
+        return generalService.createEmployee(employee);
+    }
+
+    @GetMapping("{id}")
+    public EmployeeForm getOneUserById(@PathVariable("id") Integer id) {
+        return generalService.getOneUserById(id);
+    }
+
+    @PutMapping("{id}")
+    public EmployeeForm update(@PathVariable("id") Integer id, @RequestBody EmployeeForm employeeForm) {
+        return generalService.updateEmployee(employeeForm);
+    }
 }

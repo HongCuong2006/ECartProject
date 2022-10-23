@@ -7,22 +7,22 @@ import poly.store.model.CommentModel;
 
 public interface CommentService {
 
-	List<Comment> getListCommentByProductId(Integer id);
+    List<Comment> getListCommentByProductId(Integer id);
 
-	CommentModel createComment(CommentModel commentModel);
+    CommentModel createComment(CommentModel commentModel);
 
-	List<Comment> getListCommentPending();
+    List<Comment> getListCommentPending();
 
-	Comment getCommentByCommentId(Integer id);
+    Comment getCommentByCommentId(Integer id);
 
-	void approveComment(Integer id);
+    void approveComment(Integer id);
 
-	void delete(Integer id);
+    void delete(Integer id);
 
-	List<Comment> getListCommentChecked();
+    List<Comment> getListCommentChecked();
 
-	int getCountCommentByProductNameSearch(String nameSearch);
+    int getCountCommentByProductNameSearch(String nameSearch);
 
-	int getAllStarCommentByProductNameSearch(String nameSearch);
+    int getAllStarCommentByProductNameSearch(String nameSearch);
 
 }

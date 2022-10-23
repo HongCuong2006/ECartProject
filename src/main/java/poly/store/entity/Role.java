@@ -1,8 +1,8 @@
 /**
  * @(#)Role.java 2021/08/19.
- * 
+ * <p>
  * Copyright(C) 2021 by PHOENIX TEAM.
- * 
+ * <p>
  * Last_Update 2021/08/19.
  * Version 1.00.
  */
@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Class chua thong tin Role
- * 
+ *
  * @author khoa-ph
  * @version 1.00
  */
@@ -38,16 +38,16 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "Roles")
 public class Role implements Serializable {
-	// Thong tin Role Id
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+    // Thong tin Role Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	// Thong tin Role Name
-	private String name;
+    // Thong tin Role Name
+    private String name;
 
-	// Lay danh sach User Role
-	@JsonIgnore
-	@OneToMany(mappedBy = "role")
-	List<UserRole> listUserRole;
+    // Lay danh sach User Role
+    @JsonIgnore
+    @OneToMany(mappedBy = "role")
+    List<UserRole> listUserRole;
 }
